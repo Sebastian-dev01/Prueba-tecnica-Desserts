@@ -1,0 +1,112 @@
+import type { Dessert } from "../types/dessert.types"
+
+export const desserts: Dessert[] = [
+  {
+    id: 1,
+    name: "Waffle with Berries",
+    category: "Waffle",
+    price: 6.5,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-waffle-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-waffle-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-waffle-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-waffle-thumbnail.jpg",
+    },
+  },
+  {
+    id: 2,
+    name: "Vanilla Bean Crème Brûlée",
+    category: "Crème Brûlée",
+    price: 7.0,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-creme-brulee-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-creme-brulee-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-creme-brulee-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-creme-brulee-thumbnail.jpg",
+    },
+  },
+  {
+    id: 3,
+    name: "Macaron Mix of Five",
+    category: "Macaron",
+    price: 8.0,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-macaron-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-macaron-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-macaron-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-macaron-thumbnail.jpg",
+    },
+  },
+  {
+    id: 4,
+    name: "Classic Tiramisu",
+    category: "Tiramisu",
+    price: 5.5,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-tiramisu-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-tiramisu-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-tiramisu-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-tiramisu-thumbnail.jpg",
+    },
+  },
+  {
+    id: 5,
+    name: "Pistachio Baklava",
+    category: "Baklava",
+    price: 4.0,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-baklava-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-baklava-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-baklava-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-baklava-thumbnail.jpg",
+    },
+  },
+  {
+    id: 6,
+    name: "Lemon Meringue Pie",
+    category: "Pie",
+    price: 5.0,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-meringue-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-meringue-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-meringue-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-meringue-thumbnail.jpg",
+    },
+  },
+  {
+    id: 7,
+    name: "Red Velvet Cake",
+    category: "Cake",
+    price: 4.5,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-cake-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-cake-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-cake-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-cake-thumbnail.jpg",
+    },
+  },
+  {
+    id: 8,
+    name: "Salted Caramel Brownie",
+    category: "Brownie",
+    price: 5.5,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-brownie-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-brownie-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-brownie-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-brownie-thumbnail.jpg",
+    },
+  },
+  {
+    id: 9,
+    name: "Vanilla Panna Cotta",
+    category: "Panna Cotta",
+    price: 6.5,
+    image: {
+      desktop: "/assets/images/desserts_desktop/image-panna-cotta-desktop.jpg",
+      tablet: "/assets/images/desserts_tablet/image-panna-cotta-tablet.jpg",
+      mobile: "/assets/images/desserts_mobile/image-panna-cotta-mobile.jpg",
+      thumbnail: "/assets/images/desserts_carrito/image-panna-cotta-thumbnail.jpg",
+    },
+  },
+]
