@@ -1,16 +1,24 @@
-import { useQuery } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query";
+
 import { getProducts } from "../services/productService";
+import { queryKeys } from "./queryKeys";
 
 export const useProducts = (
   search: string = "",
-  category: string = "",
+  categoryId?: number,
 ) => {
   return useQuery({
-    queryKey: ["products", {search, category}],
+    queryKey: queryKeys.products.list({ search, categoryId }),
+
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1200))
-      return getProducts({ search, category })
+      await new Promise((resolve) => setTimeout(resolve, 1200));
+
+      return getProducts({
+        search,
+        categoryId,
+      });
     },
-    placeholderData:(previusData)=>previusData,
+
+    placeholderData: (previousData) => previousData,
   });
 };

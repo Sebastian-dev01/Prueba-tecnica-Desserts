@@ -1,17 +1,27 @@
 import { useParams, Link } from "react-router-dom";
+
 import { useProduct } from "../../hooks/useProduct";
+import { useCategories } from "../../hooks/useCategories";
 
 const ProductDetailPage = () => {
   const { id } = useParams();
 
   const productId = Number(id);
 
+  // Consultar producto
   const {
     data: product,
     isLoading,
     isError,
     error,
   } = useProduct(productId);
+
+  // Consultar categorías
+  const {
+    data: categories,
+    isLoading: isCategoriesLoading,
+    isError: isCategoriesError,
+  } = useCategories();
 
   if (!Number.isInteger(productId) || productId <= 0) {
     return (
@@ -50,6 +60,11 @@ const ProductDetailPage = () => {
     );
   }
 
+  // Resolver el nombre de la categoría
+  const categoryName = categories?.find(
+    (category) => category.id === product.categoryId,
+  )?.name;
+
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
       <Link
@@ -84,7 +99,11 @@ const ProductDetailPage = () => {
           <div className="flex flex-col justify-center gap-5 p-6 sm:p-8 lg:p-10">
             <div className="flex flex-col gap-3">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#87635a]">
-                {product.category}
+                {isCategoriesLoading
+                  ? "Cargando categoría..."
+                  : isCategoriesError
+                    ? "Categoría no disponible"
+                    : categoryName ?? "Sin categoría"}
               </p>
 
               <h1 className="max-w-xl text-3xl font-bold leading-tight text-[#260f08] sm:text-4xl">
