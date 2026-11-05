@@ -16,15 +16,16 @@ const ConfirmOrderModal = ({
   )
 
   return (
-    <dialog
-      open
-      aria-labelledby="order-title"
-      aria-modal="true"
-      className="fixed inset-0 m-auto max-h-[90vh] w-[min(100%-2rem,32rem)] overflow-y-auto rounded-xl border-0 bg-white p-6 shadow-2xl backdrop:bg-black/50 sm:p-8"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#260f08]/25 p-4 backdrop-blur-sm">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="order-title"
+        className="max-h-[90vh] w-full max-w-[32rem] overflow-y-auto rounded-xl bg-white p-6 shadow-2xl sm:p-8"
+      >
       {/* Header */}
       <header className="mb-7">
-        <div className="flex size-12 items-center justify-center rounded-full   text-2xl font-medium text-[#1ea779">
+        <div className="flex size-12 items-center justify-center text-2xl font-medium text-[#1ea779]">
           <img
             src="/assets/images/icons/icon-order-confirmed.svg"
             alt=""
@@ -107,7 +108,8 @@ const ConfirmOrderModal = ({
       >
         Start New Order
       </button>
-    </dialog>
+      </div>
+    </div>
   )
 }
 
