@@ -2,9 +2,9 @@
 import type { CartItem } from '../../types/cart.types'
 
 type CartItemCardProps = {
-  item: CartItem
-  onRemove?: (id: number) => void
-}
+  item: CartItem;
+  onRemove: (id: CartItem["dessert"]["id"]) => void;
+};
 
 const CartItemCard = ({ item, onRemove }: CartItemCardProps) => {
   const subTotal = item.dessert.price * item.quantity
@@ -34,7 +34,7 @@ const CartItemCard = ({ item, onRemove }: CartItemCardProps) => {
 
       <button
         type="button"
-        onClick={() => onRemove?.(item.dessert.id)}
+        onClick={() => onRemove(item.dessert.id)}
         aria-label={`Remove ${item.dessert.name}`}
         className="flex size-5 shrink-0 items-center justify-center rounded-full border border-[#ad8985] text-[#ad8985] transition-colors hover:border-[#260f08] hover:text-[#260f08]"
       >

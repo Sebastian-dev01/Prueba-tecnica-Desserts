@@ -1,23 +1,14 @@
-export type DessertCategory =
-  | "Waffle"
-  | "Crème Brûlée"
-  | "Macaron"
-  | "Tiramisu"
-  | "Baklava"
-  | "Pie"
-  | "Cake"
-  | "Brownie"
-  | "Panna Cotta"
+export type DessertImage = {
+  desktop: string;
+  mobile: string;
+  tablet: string;
+  thumbnail: string;
+};
 
 export type Dessert = {
-  id: number,
-  name: string,
-  category: DessertCategory,
-  price: number,
-  image: {
-    desktop: string,
-    mobile: string,
-    tablet: string,
-    thumbnail:string
-  }
-}
+  id: string | number;
+  name: string;
+  categoryId: number;
+  price: number;
+  image: DessertImage;
+};

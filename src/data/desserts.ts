@@ -1,10 +1,10 @@
-import type { Dessert } from "../types/dessert.types"
+import type { Dessert } from "../types/dessert.types";
 
 export const desserts: Dessert[] = [
   {
     id: 1,
     name: "Waffle with Berries",
-    category: "Waffle",
+    categoryId: 1,
     price: 6.5,
     image: {
       desktop: "/assets/images/desserts_desktop/image-waffle-desktop.jpg",
@@ -16,7 +16,7 @@ export const desserts: Dessert[] = [
   {
     id: 2,
     name: "Vanilla Bean Crème Brûlée",
-    category: "Crème Brûlée",
+    categoryId: 2,
     price: 7.0,
     image: {
       desktop: "/assets/images/desserts_desktop/image-creme-brulee-desktop.jpg",
@@ -28,7 +28,7 @@ export const desserts: Dessert[] = [
   {
     id: 3,
     name: "Macaron Mix of Five",
-    category: "Macaron",
+    categoryId: 3,
     price: 8.0,
     image: {
       desktop: "/assets/images/desserts_desktop/image-macaron-desktop.jpg",
@@ -40,7 +40,7 @@ export const desserts: Dessert[] = [
   {
     id: 4,
     name: "Classic Tiramisu",
-    category: "Tiramisu",
+    categoryId: 4,
     price: 5.5,
     image: {
       desktop: "/assets/images/desserts_desktop/image-tiramisu-desktop.jpg",
@@ -52,7 +52,7 @@ export const desserts: Dessert[] = [
   {
     id: 5,
     name: "Pistachio Baklava",
-    category: "Baklava",
+    categoryId: 5,
     price: 4.0,
     image: {
       desktop: "/assets/images/desserts_desktop/image-baklava-desktop.jpg",
@@ -64,7 +64,7 @@ export const desserts: Dessert[] = [
   {
     id: 6,
     name: "Lemon Meringue Pie",
-    category: "Pie",
+    categoryId: 6,
     price: 5.0,
     image: {
       desktop: "/assets/images/desserts_desktop/image-meringue-desktop.jpg",
@@ -76,7 +76,7 @@ export const desserts: Dessert[] = [
   {
     id: 7,
     name: "Red Velvet Cake",
-    category: "Cake",
+    categoryId: 7,
     price: 4.5,
     image: {
       desktop: "/assets/images/desserts_desktop/image-cake-desktop.jpg",
@@ -88,7 +88,7 @@ export const desserts: Dessert[] = [
   {
     id: 8,
     name: "Salted Caramel Brownie",
-    category: "Brownie",
+    categoryId: 8,
     price: 5.5,
     image: {
       desktop: "/assets/images/desserts_desktop/image-brownie-desktop.jpg",
@@ -100,7 +100,7 @@ export const desserts: Dessert[] = [
   {
     id: 9,
     name: "Vanilla Panna Cotta",
-    category: "Panna Cotta",
+    categoryId: 9,
     price: 6.5,
     image: {
       desktop: "/assets/images/desserts_desktop/image-panna-cotta-desktop.jpg",
@@ -109,4 +109,4 @@ export const desserts: Dessert[] = [
       thumbnail: "/assets/images/desserts_carrito/image-panna-cotta-thumbnail.jpg",
     },
   },
-]
+];
