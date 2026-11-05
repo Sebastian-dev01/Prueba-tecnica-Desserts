@@ -1,3 +1,4 @@
+
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 import {
@@ -10,6 +11,7 @@ import type { Dessert } from "../../types/dessert.types";
 import { queryKeys } from "../queryKeys";
 
 type ProductInput = Omit<Dessert, "id">;
+type ProductId = Dessert["id"];
 
 export const useProductsMutations = () => {
   const queryClient = useQueryClient();
@@ -31,7 +33,7 @@ export const useProductsMutations = () => {
       id,
       product,
     }: {
-      id: number;
+      id: ProductId;
       product: ProductInput;
     }) => updateProduct(id, product),
 
@@ -48,7 +50,7 @@ export const useProductsMutations = () => {
 
   // Eliminar producto
   const deleteMutation = useMutation({
-    mutationFn: (id: number) => deleteProduct(id),
+    mutationFn: (id: ProductId) => deleteProduct(id),
 
     onSuccess: (_, deletedId) => {
       queryClient.invalidateQueries({
@@ -57,6 +59,7 @@ export const useProductsMutations = () => {
 
       queryClient.removeQueries({
         queryKey: queryKeys.products.detail(deletedId),
+        exact: true,
       });
     },
   });

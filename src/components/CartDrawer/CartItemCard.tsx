@@ -2,9 +2,9 @@
 import type { CartItem } from '../../types/cart.types'
 
 type CartItemCardProps = {
-  item: CartItem
-  onRemove: (id: number) => void
-}
+  item: CartItem;
+  onRemove: (id: CartItem["dessert"]["id"]) => void;
+};
 
 const CartItemCard = ({ item, onRemove }: CartItemCardProps) => {
   const subTotal = item.dessert.price * item.quantity

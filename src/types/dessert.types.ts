@@ -6,7 +6,7 @@ export type DessertImage = {
 };
 
 export type Dessert = {
-  id: number;
+  id: string | number;
   name: string;
   categoryId: number;
   price: number;

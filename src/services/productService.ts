@@ -7,19 +7,38 @@ const api = axios.create({
   baseURL: "http://localhost:3000",
 });
 
+// Filtros y parámetros de paginación
 export type ProductFilters = {
   search?: string;
   categoryId?: number;
+  page?: number;
+  perPage?: number;
 };
 
-// Obtener productos
+// Cantidad de productos por página
+export const PRODUCTS_PER_PAGE = 8;
+
+// Respuesta paginada de json-server v1
+export type PaginatedProductsResponse = {
+  first: number | null;
+  prev: number | null;
+  next: number | null;
+  last: number | null;
+  pages: number;
+  items: number;
+  data: Dessert[];
+};
+
+// Obtener productos con búsqueda, categoría y paginación
 export const getProducts = async (
   filters: ProductFilters = {},
-): Promise<Dessert[]> => {
-  const response = await api.get<Dessert[]>("/products", {
+): Promise<PaginatedProductsResponse> => {
+  const response = await api.get<PaginatedProductsResponse>("/products", {
     params: {
       "name:contains": filters.search || undefined,
       categoryId: filters.categoryId ?? undefined,
+      _page: filters.page ?? 1,
+      _per_page: filters.perPage ?? PRODUCTS_PER_PAGE,
     },
   });
 
@@ -28,7 +47,7 @@ export const getProducts = async (
 
 // Obtener un producto por ID
 export const getProductById = async (
-  id: number,
+  id: string | number,
 ): Promise<Dessert> => {
   const response = await api.get<Dessert>(`/products/${id}`);
 
@@ -44,7 +63,7 @@ export const getCategories = async (): Promise<Category[]> => {
 
 // Obtener una categoría por ID
 export const getCategoryById = async (
-  id: number,
+  id: string | number,
 ): Promise<Category> => {
   const response = await api.get<Category>(`/categories/${id}`);
 
@@ -62,7 +81,7 @@ export const createProduct = async (
 
 // Actualizar producto
 export const updateProduct = async (
-  id: number,
+  id: string | number,
   product: Omit<Dessert, "id">,
 ): Promise<Dessert> => {
   const response = await api.put<Dessert>(`/products/${id}`, product);
@@ -71,7 +90,9 @@ export const updateProduct = async (
 };
 
 // Eliminar producto
-export const deleteProduct = async (id: number): Promise<void> => {
+export const deleteProduct = async (
+  id: string | number,
+): Promise<void> => {
   await api.delete(`/products/${id}`);
 };
 

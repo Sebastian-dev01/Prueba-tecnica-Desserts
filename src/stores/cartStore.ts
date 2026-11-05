@@ -8,9 +8,9 @@ type CartState = {
   cartItems: CartItem[];
 
   addItem: (dessert: Dessert) => void;
-  removeItem: (id: number) => void;
-  increaseQuantity: (id: number) => void;
-  decreaseQuantity: (id: number) => void;
+  removeItem: (id: Dessert["id"]) => void;
+  increaseQuantity: (id: Dessert["id"]) => void;
+  decreaseQuantity: (id: Dessert["id"]) => void;
   clearCart: () => void;
 };
 
