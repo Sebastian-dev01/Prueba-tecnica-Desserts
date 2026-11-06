@@ -9,6 +9,47 @@ import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDelet
 
 import { useCartStore } from "../../stores/cartStore";
 
+type ProductDetailMessageProps = {
+  eyebrow: string;
+  title: string;
+  message: string;
+};
+
+const ProductDetailMessage = ({
+  eyebrow,
+  title,
+  message,
+}: ProductDetailMessageProps) => {
+  return (
+    <div className="flex min-h-[55vh] items-center justify-center py-8">
+      <section className="w-full max-w-lg rounded-3xl bg-white p-8 text-center shadow-sm ring-1 ring-[#eadfd8] sm:p-10">
+        <span className="mx-auto flex size-14 items-center justify-center rounded-2xl bg-[#fcf8f5] text-2xl font-bold text-[#c73a0f]">
+          !
+        </span>
+
+        <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[#87635a]">
+          {eyebrow}
+        </p>
+
+        <h1 className="mt-3 text-2xl font-bold text-[#260f08]">
+          {title}
+        </h1>
+
+        <p className="mx-auto mt-3 max-w-md text-sm leading-6 text-[#87635a]">
+          {message}
+        </p>
+
+        <Link
+          to="/"
+          className="mt-7 inline-flex rounded-full bg-[#c73a0f] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#952c0c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73a0f]"
+        >
+          Volver al catálogo
+        </Link>
+      </section>
+    </div>
+  );
+};
+
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,7 +71,6 @@ const ProductDetailPage = () => {
     data: product,
     isLoading,
     isError,
-    error,
   } = useProduct(productId);
 
   // Consultar categorías
@@ -43,9 +83,11 @@ const ProductDetailPage = () => {
   // Validar identificador
   if (!productId.trim()) {
     return (
-      <p className="rounded-xl bg-white p-6 text-sm text-stone-600 shadow-sm">
-        Identificador de producto inválido.
-      </p>
+      <ProductDetailMessage
+        eyebrow="Producto"
+        title="Identificador inválido"
+        message="El identificador del producto no es válido. Regresa al catálogo para elegir un postre."
+      />
     );
   }
 
@@ -65,20 +107,21 @@ const ProductDetailPage = () => {
 
   if (isError) {
     return (
-      <p
-        className="rounded-xl bg-red-50 p-6 text-sm text-red-700"
-        role="alert"
-      >
-        Error: {error.message}
-      </p>
+      <ProductDetailMessage
+        eyebrow="Producto no disponible"
+        title={`No encontramos el producto ${productId}`}
+        message="Este postre no existe o ya no está disponible. Puedes volver al catálogo y seguir explorando."
+      />
     );
   }
 
   if (!product) {
     return (
-      <p className="rounded-xl bg-white p-6 text-sm text-stone-600 shadow-sm">
-        Producto no encontrado.
-      </p>
+      <ProductDetailMessage
+        eyebrow="Producto no disponible"
+        title={`No encontramos el producto ${productId}`}
+        message="Este postre no existe o ya no está disponible. Puedes volver al catálogo y seguir explorando."
+      />
     );
   }
 

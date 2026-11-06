@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: prueba-tecnica-desserts-api
+    runtime: node
+    plan: free
+    buildCommand: pnpm install --frozen-lockfile
+    startCommand: pnpm run server
+    healthCheckPath: /products
