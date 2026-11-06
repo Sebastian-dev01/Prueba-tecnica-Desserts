@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 import ProductForm from "../../components/ProductForm/ProductForm";
 import { useCategories } from "../../hooks/useCategories";
@@ -9,14 +10,27 @@ import type { DessertFormValues } from "../../schemas/dessertSchema";
 const CreateProductPage = () => {
   const navigate = useNavigate();
 
-  const { data: categories, isLoading, isError } = useCategories();
+  const {
+    data: categories,
+    isLoading,
+    isError,
+  } = useCategories();
 
   const { createMutation } = useProductsMutations();
 
+  // Crear producto
   const handleCreate = async (values: DessertFormValues) => {
-    const createdProduct = await createMutation.mutateAsync(values);
+    try {
+      const createdProduct = await createMutation.mutateAsync(values);
 
-    navigate(`/producto/${createdProduct.id}`);
+      toast.success("Producto creado correctamente");
+
+      navigate(`/producto/${createdProduct.id}`);
+    } catch (error) {
+      console.error("Error al crear producto:", error);
+
+      toast.error("No se pudo crear el producto");
+    }
   };
 
   if (isLoading) {
@@ -24,16 +38,20 @@ const CreateProductPage = () => {
   }
 
   if (isError || !categories) {
-    return <p role="alert">No se pudieron cargar las categorías.</p>;
+    return (
+      <p role="alert">
+        No se pudieron cargar las categorías.
+      </p>
+    );
   }
 
   return (
     <main className="mx-auto flex w-full max-w-2xl flex-col gap-6">
       <Link
-        to="/"
+        to="/admin/productos"
         className="text-sm font-semibold text-[#c73a0f] hover:underline"
       >
-        ← Volver al catálogo
+        ← Volver a productos
       </Link>
 
       <div>
@@ -52,12 +70,6 @@ const CreateProductPage = () => {
         submitLabel="Crear producto"
         isPending={createMutation.isPending}
       />
-
-      {createMutation.isError && (
-        <p role="alert" className="rounded-xl bg-red-50 p-4 text-sm text-red-700">
-          No se pudo crear el producto: {createMutation.error.message}
-        </p>
-      )}
     </main>
   );
 };

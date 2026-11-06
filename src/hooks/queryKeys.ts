@@ -1,4 +1,3 @@
-
 type ProductListFilters = {
   search: string;
   categoryId?: number;

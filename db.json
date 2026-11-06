@@ -1,90 +1,6 @@
 {
   "products": [
     {
-      "name": "Waffle with Berries",
-      "categoryId": 1,
-      "price": 6.9,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-waffle-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-waffle-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-waffle-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-waffle-thumbnail.jpg"
-      },
-      "id": "1"
-    },
-    {
-      "id": "3",
-      "name": "Macaron Mix of Five",
-      "categoryId": 3,
-      "price": 8,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-macaron-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-macaron-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-macaron-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-macaron-thumbnail.jpg"
-      }
-    },
-    {
-      "id": "4",
-      "name": "Classic Tiramisu",
-      "categoryId": 4,
-      "price": 5.5,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-tiramisu-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-tiramisu-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-tiramisu-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-tiramisu-thumbnail.jpg"
-      }
-    },
-    {
-      "id": "5",
-      "name": "Pistachio Baklava",
-      "categoryId": 5,
-      "price": 4,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-baklava-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-baklava-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-baklava-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-baklava-thumbnail.jpg"
-      }
-    },
-    {
-      "id": "6",
-      "name": "Lemon Meringue Pie",
-      "categoryId": 6,
-      "price": 5,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-meringue-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-meringue-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-meringue-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-meringue-thumbnail.jpg"
-      }
-    },
-    {
-      "id": "7",
-      "name": "Red Velvet Cake",
-      "categoryId": 7,
-      "price": 4.5,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-cake-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-cake-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-cake-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-cake-thumbnail.jpg"
-      }
-    },
-    {
-      "id": "8",
-      "name": "Salted Caramel Brownie",
-      "categoryId": 8,
-      "price": 5.5,
-      "image": {
-        "desktop": "/assets/images/desserts_desktop/image-brownie-desktop.jpg",
-        "tablet": "/assets/images/desserts_tablet/image-brownie-tablet.jpg",
-        "mobile": "/assets/images/desserts_mobile/image-brownie-mobile.jpg",
-        "thumbnail": "/assets/images/desserts_carrito/image-brownie-thumbnail.jpg"
-      }
-    },
-    {
       "id": "9",
       "name": "Vanilla Panna Cotta",
       "categoryId": 9,
@@ -95,18 +11,6 @@
         "mobile": "/assets/images/desserts_mobile/image-panna-cotta-mobile.jpg",
         "thumbnail": "/assets/images/desserts_carrito/image-panna-cotta-thumbnail.jpg"
       }
-    },
-    {
-      "name": "lucuma",
-      "categoryId": 2,
-      "price": 5.5,
-      "image": {
-        "desktop": "https://perudelights.com/wp-content/uploads/2013/03/frozen-mousse-de-l%C3%BAcuma1.jpg",
-        "tablet": "https://perudelights.com/wp-content/uploads/2013/03/frozen-mousse-de-l%C3%BAcuma1.jpg",
-        "mobile": "https://perudelights.com/wp-content/uploads/2013/03/frozen-mousse-de-l%C3%BAcuma1.jpg",
-        "thumbnail": "https://perudelights.com/wp-content/uploads/2013/03/frozen-mousse-de-l%C3%BAcuma1.jpg"
-      },
-      "id": "loTp8C8hsz0"
     }
   ],
   "categories": [
@@ -145,10 +49,6 @@
     {
       "id": "9",
       "name": "Panna Cotta"
-    },
-    {
-      "id": "10",
-      "name": "Lucuma"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
