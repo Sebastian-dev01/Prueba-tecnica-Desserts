@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
 import Header from "../../components/header/Header";
@@ -95,6 +95,13 @@ const HomePage = () => {
     <div className="flex flex-col gap-8">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <Header />
+
+        <Link
+          to="/admin/productos"
+          className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#c73a0f] px-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#a82f0b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73a0f] sm:w-auto"
+        >
+          Administrar productos
+        </Link>
       </div>
 
       {/* Búsqueda y filtros */}
