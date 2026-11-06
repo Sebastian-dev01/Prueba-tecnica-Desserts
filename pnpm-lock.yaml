@@ -17,6 +17,9 @@ importers:
       axios:
         specifier: ^1.21.0
         version: 1.21.0(debug@4.4.3)
+      json-server:
+        specifier: 1.0.0-beta.15
+        version: 1.0.0-beta.15
       react:
         specifier: ^19.3.1
         version: 19.3.1
@@ -32,9 +35,9 @@ importers:
       react-router-dom:
         specifier: ^7.18.5
         version: 7.18.5(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
-      json-server:
-        specifier: 1.0.0-beta.15
-        version: 1.0.0-beta.15
+      sonner:
+        specifier: ^2.0.8
+        version: 2.0.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       zod:
         specifier: ^4.6.7
         version: 4.6.7
@@ -1433,6 +1436,16 @@ packages:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
 
+  sonner@2.0.8:
+    resolution: {integrity: sha512-UM/ByIoFra8yzV75n1o0Puu0bw5U/9UNnDacrJNspekBewIfsQ3D6ez1nvlWpt7aTsO6rujQtifBpycwIivqlg==}
+    peerDependencies:
+      '@types/react': ^18.0.0 || ^19.0.0
+      react: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+      react-dom: ^18.0.0 || ^19.0.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
   sort-on@7.0.0:
     resolution: {integrity: sha512-e+4RRxt7jsWdGPp4H5PKOER/ELYlemNB1plvW686Qi3j4WVaCjCpro2zaTD7Cn0VtBImq/hg3x1JfovMNXXfJQ==}
     engines: {node: '>=20'}
@@ -2755,6 +2768,13 @@ snapshots:
       '@polka/url': 1.0.0-next.29
       mrmime: 2.0.1
       totalist: 3.0.1
+
+  sonner@2.0.8(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1):
+    dependencies:
+      react: 19.3.1
+      react-dom: 19.3.1(react@19.3.1)
+    optionalDependencies:
+      '@types/react': 19.3.0
 
   sort-on@7.0.0:
     dependencies:

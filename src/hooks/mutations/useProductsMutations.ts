@@ -1,5 +1,5 @@
-
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 
 import {
   createProduct,
@@ -16,18 +16,28 @@ type ProductId = Dessert["id"];
 export const useProductsMutations = () => {
   const queryClient = useQueryClient();
 
-  // Crear producto
+  // CREAR PRODUCTO
   const createMutation = useMutation({
     mutationFn: (product: ProductInput) => createProduct(product),
 
-    onSuccess: () => {
+    onSuccess: (createdProduct) => {
+      console.log("✅ CREATE SUCCESS:", createdProduct);
+
       queryClient.invalidateQueries({
         queryKey: queryKeys.products.all,
       });
+
+      toast.success("Producto creado correctamente");
+    },
+
+    onError: (error) => {
+      console.error("❌ CREATE ERROR:", error);
+
+      toast.error("No se pudo crear el producto");
     },
   });
 
-  // Actualizar producto
+  // ACTUALIZAR PRODUCTO
   const updateMutation = useMutation({
     mutationFn: ({
       id,
@@ -38,6 +48,8 @@ export const useProductsMutations = () => {
     }) => updateProduct(id, product),
 
     onSuccess: (updatedProduct) => {
+      console.log("✅ UPDATE SUCCESS:", updatedProduct);
+
       queryClient.invalidateQueries({
         queryKey: queryKeys.products.all,
       });
@@ -45,14 +57,24 @@ export const useProductsMutations = () => {
       queryClient.invalidateQueries({
         queryKey: queryKeys.products.detail(updatedProduct.id),
       });
+
+      toast.success("Producto actualizado correctamente");
+    },
+
+    onError: (error) => {
+      console.error("❌ UPDATE ERROR:", error);
+
+      toast.error("No se pudo actualizar el producto");
     },
   });
 
-  // Eliminar producto
+  // ELIMINAR PRODUCTO
   const deleteMutation = useMutation({
     mutationFn: (id: ProductId) => deleteProduct(id),
 
     onSuccess: (_, deletedId) => {
+      console.log("✅ DELETE SUCCESS. ID:", deletedId);
+
       queryClient.invalidateQueries({
         queryKey: queryKeys.products.all,
       });
@@ -61,6 +83,14 @@ export const useProductsMutations = () => {
         queryKey: queryKeys.products.detail(deletedId),
         exact: true,
       });
+
+      toast.success("Producto eliminado correctamente");
+    },
+
+    onError: (error) => {
+      console.error("❌ DELETE ERROR:", error);
+
+      toast.error("No se pudo eliminar el producto");
     },
   });
 

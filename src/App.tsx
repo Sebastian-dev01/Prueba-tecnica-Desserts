@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-// Layout
+// Layouts
 import MainLayout from "./layouts/MainLayout/MainLayout";
+import AdminLayout from "./layouts/AdminLayout/AdminLayout";
 
 // Pages
 import HomePage from "./pages/HomePage/HomePage";
 import ProductDetailPage from "./pages/ProductDetailPage/ProductDetailPage";
+import AdminProductsPage from "./pages/AdminProductsPage/AdminProductsPage";
 import CreateProductPage from "./pages/CreateProductPage/CreateProductPage";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
@@ -44,10 +46,10 @@ function App() {
   return (
     <div className="app-container">
       <Routes>
+        {/* Rutas de la tienda */}
         <Route
           element={<MainLayout onConfirm={handleConfirmOrder} />}
         >
-          {/* Tienda */}
           <Route index element={<HomePage />} />
 
           <Route
@@ -59,8 +61,15 @@ function App() {
             path="product/:id"
             element={<ProductDetailPage />}
           />
+        </Route>
 
-          {/* Administración de productos */}
+        {/* Rutas administrativas */}
+        <Route element={<AdminLayout />}>
+          <Route
+            path="admin/productos"
+            element={<AdminProductsPage />}
+          />
+
           <Route
             path="admin/productos/nuevo"
             element={<CreateProductPage />}
@@ -70,10 +79,10 @@ function App() {
             path="admin/productos/:id/editar"
             element={<EditProductPage />}
           />
-
-          {/* Ruta no encontrada */}
-          <Route path="*" element={<NotFoundPage />} />
         </Route>
+
+        {/* Ruta no encontrada */}
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       {/* Confirmación de compra */}

@@ -26,8 +26,8 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
     <article className="group flex flex-col gap-4">
       <div className="relative">
         <Link
-          to={`/producto/${dessert.id}`}
-          aria-label={`Ver detalles de ${dessert.name}`}
+          to="/"
+          aria-label={`Volver al inicio desde ${dessert.name}`}
           className="block"
         >
           <picture>
@@ -80,7 +80,7 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
         </span>
 
         <Link
-          to={`/producto/${dessert.id}`}
+          to="/"
           className="w-fit"
         >
           <h2
