@@ -55,6 +55,11 @@ function App() {
             element={<ProductDetailPage />}
           />
 
+          <Route
+            path="product/:id"
+            element={<ProductDetailPage />}
+          />
+
           {/* Administración de productos */}
           <Route
             path="admin/productos/nuevo"
