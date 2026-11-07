@@ -13,11 +13,9 @@ type ProductCardProps = {
 
 const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
   const addItem = useCartStore((state) => state.addItem);
-
   const increaseQuantity = useCartStore(
     (state) => state.increaseQuantity,
   );
-
   const decreaseQuantity = useCartStore(
     (state) => state.decreaseQuantity,
   );
@@ -26,8 +24,8 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
     <article className="group flex flex-col gap-4">
       <div className="relative">
         <Link
-          to="/"
-          aria-label={`Volver al inicio desde ${dessert.name}`}
+          to={`/producto/${dessert.id}`}
+          aria-label={`Ver detalles de ${dessert.name}`}
           className="block"
         >
           <picture>
@@ -45,7 +43,7 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
               src={dessert.image.desktop}
               alt={dessert.name}
               draggable={false}
-              className="pointer-events-none w-full select-none rounded-xl border border-transparent object-cover transition-colors duration-200 group-hover:border-[#c73a0f]"
+              className="w-full select-none rounded-xl border border-transparent object-cover transition-colors duration-200 group-hover:border-[#c73a0f]"
             />
           </picture>
         </Link>
@@ -80,7 +78,7 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
         </span>
 
         <Link
-          to="/"
+          to={`/producto/${dessert.id}`}
           className="w-fit"
         >
           <h2
