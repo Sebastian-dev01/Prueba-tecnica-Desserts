@@ -1,22 +1,25 @@
 import type { Dessert } from "../../types/dessert.types";
+
 import QuantityStepper from "../QuantityStepper/QuantityStepper";
 import { Link } from "react-router-dom";
+
+import { useCartStore } from "../../stores/cartStore";
 
 type ProductCardProps = {
   dessert: Dessert;
   quantity: number;
-  onAdd: (dessert: Dessert) => void;
-  onIncrease: (dessert: Dessert) => void;
-  onDecrease: (dessert: Dessert) => void;
+  categoryName: string;
 };
 
-const ProductCard = ({
-  dessert,
-  quantity,
-  onAdd,
-  onDecrease,
-  onIncrease,
-}: ProductCardProps) => {
+const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
+  const addItem = useCartStore((state) => state.addItem);
+  const increaseQuantity = useCartStore(
+    (state) => state.increaseQuantity,
+  );
+  const decreaseQuantity = useCartStore(
+    (state) => state.decreaseQuantity,
+  );
+
   return (
     <article className="group flex flex-col gap-4">
       <div className="relative">
@@ -49,14 +52,14 @@ const ProductCard = ({
           {quantity > 0 ? (
             <QuantityStepper
               quantity={quantity}
-              onIncrease={() => onIncrease(dessert)}
-              onDecrease={() => onDecrease(dessert)}
+              onIncrease={() => increaseQuantity(dessert.id)}
+              onDecrease={() => decreaseQuantity(dessert.id)}
             />
           ) : (
             <button
               type="button"
               className="flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-full border border-[#ad8a82] bg-white px-5 text-sm font-semibold text-[#260f08] shadow-sm transition-colors hover:border-[#c73a0f] hover:text-[#c73a0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73a0f]"
-              onClick={() => onAdd(dessert)}
+              onClick={() => addItem(dessert)}
             >
               <img
                 src="assets/images/icons/icon-add-to-cart.svg"
@@ -71,7 +74,7 @@ const ProductCard = ({
 
       <div className="flex flex-col gap-1 pt-5">
         <span className="text-sm text-[#87635a]">
-          {dessert.category}
+          {categoryName}
         </span>
 
         <Link
