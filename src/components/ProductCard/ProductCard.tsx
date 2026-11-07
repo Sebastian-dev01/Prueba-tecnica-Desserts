@@ -43,7 +43,7 @@ const ProductCard = ({ dessert, quantity, categoryName }: ProductCardProps) => {
               src={dessert.image.desktop}
               alt={dessert.name}
               draggable={false}
-              className="pointer-events-none w-full select-none rounded-xl border border-transparent object-cover transition-colors duration-200 group-hover:border-[#c73a0f]"
+              className="w-full select-none rounded-xl border border-transparent object-cover transition-colors duration-200 group-hover:border-[#c73a0f]"
             />
           </picture>
         </Link>
